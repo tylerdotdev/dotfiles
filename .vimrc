@@ -1,8 +1,17 @@
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set runtimepath^=~/.vim/bundle/vim-airline/plugin/airline.vim
 
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'kien/ctrlp.vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
@@ -53,7 +62,6 @@ map <C-Right> <Esc>:bnext<CR>
 " Nerd Tree toggling
 map <C-a> :NERDTreeToggle<CR>
 
-" Start pathogen
 execute pathogen#infect()
 call pathogen#helptags()
 
