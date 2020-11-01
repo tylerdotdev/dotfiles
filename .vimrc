@@ -9,10 +9,12 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kien/ctrlp.vim'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'rust-lang/rust.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
@@ -61,9 +63,6 @@ map <C-Right> <Esc>:bnext<CR>
 
 " Nerd Tree toggling
 map <C-a> :NERDTreeToggle<CR>
-
-execute pathogen#infect()
-call pathogen#helptags()
 
 set noruler
 set noshowmode
